@@ -1,3 +1,10 @@
+* {
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+}
 .navbar {
     position: fixed;
     top: 0;
@@ -8,7 +15,6 @@
 }
 
 .navbar button {
-    transition: margin 0.1s;
     background: 0;
     border: 0;
     color: white;
@@ -16,6 +22,11 @@
     font-size: 20px;
     margin: 5px;
 }
-.navbar:hover button {
-    margin: 15px;
+.playButton img {
+    height: 60px;
+    transition: transform 1s;
+    cursor: pointer;
+}
+.playButton img:hover {
+    transform: scale(1.1);
 }
