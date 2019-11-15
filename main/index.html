@@ -3,9 +3,17 @@
   <head>
     <title>Sequins - The Colorful Sequencer</title>
     <link rel='stylesheet' href="style.css">
+    <meta name='authors' content="Adam Golan, Asger Dokkedal, Mads Edvardsen">
+    <link rel='icon' href="/Sequins_logo2.png">
   </head>
   <body>
     <div class='navbar'>
+      <button class='logo'><img src="/Sequins_icon.png"></button>
+      <div class='bpmBox'>
+        <input type='number' class='bpm' max='200' min='1' value='120'>
+        <span>BPM</span>
+      </div>
+      <button class='metronome'><img src='/Metronome.png'></button>
       <button class='playButton' onclick='pressPlay(this)' data-state='false'><img src='icons/Play.png'></button>
     </div>
     <div class='main'></div>
