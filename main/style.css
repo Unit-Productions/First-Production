@@ -5,7 +5,7 @@
     -webkit-user-select: none;
     -webkit-user-drag: none;
     outline: 0;
-    font-family: 'BioRhyme';
+    font-family: 'Rubik';
 }
 @font-face {
     font-family: 'Muli';
@@ -15,57 +15,92 @@
     font-family: 'BioRhyme';
     src: url('/BioRhyme/BioRhyme-Regular.ttf');
 }
+@font-face {
+    font-family: 'Rubik';
+    src: url('/Rubik/Rubik-Light.ttf');
+}
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
+    height: 73px;
     background: linear-gradient(135deg, rgb(224, 102, 102) 0%, rgb(103, 78, 167) 100%) white;
+    overflow: hidden;
 }
-
-.navbar button {
-    background: 0;
-    border: 0;
-    color: white;
-    outline: 0;
-    font-size: 20px;
-    margin: 5px;
+.navBox {
+    padding: 15px;
+    border-right: solid white 1px;
+    float: left;
+    height: 100px;
 }
-.navbar button img {
-    height: 60px;
-}
-.playButton img {
-    height: 60px;
-    transition: transform 1s;
-    cursor: pointer;
-}
-.playButton img:hover {
-    transform: scale(1.1);
+.navBox img {
+    height: 40px;
+    display: block;
 }
 .bpm {
-    background: 0;
+    display: inline-block;
     border: 0;
-    color: white;
-    text-align: center;
-    font-size: 50px;
-    width: 90px;
-    vertical-align: 19%;
+    background: 0;
     height: 40px;
+    color: white;
+    font-size: 30px;
+    width: 55px;
+    text-align: center;
+}
+.bpmBox span {
+    display: inline-block;
+    color: white;
+    vertical-align: 14%;
+    font-size: 20px;
+}
+.playButton, .metronome {
+    cursor: pointer;
+}
+.playButton img, .metronome img {
+    transition: transform 1s;
+}
+.playButton:hover img, .metronome:hover img {
+    transform: scale(1.1);
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
-.bpmBox {
-    display: inline-block;
-    border: solid white 3px;
-    border-radius: 5px;
-    height: 50px;
-    padding: 5px;
-}
-.bpmBox span {
-    font-size: 15px;
+.textBox span {
     color: white;
-    vertical-align: 100%;
+    font-size: 30px;
+    line-height: 142%;
+}
+.pads {
+    position: fixed;
+    bottom: 0;
+    top: 73px;
+    text-align: center;
+    right: 30%;
+    left: 30%;
+}
+.pad {
+    padding: 10%;
+    background-color: black;
+    width: 1px;
+    height: 1px;
+    display: inline-block;
+}
+.pads table {
+    width: 100%;
+    border-spacing: 10px;
+}
+.pads td {
+    height: 20vh;
+    border-radius: 5px;
+    background: linear-gradient(135deg, rgb(224, 102, 102) 0%, rgb(103, 78, 167) 100%) white;
+}
+.pads td div {
+    background-color: white;
+    width: 70%;
+    height: 70%;
+    margin: auto;
+    border-radius: 5px;
 }
