@@ -90,7 +90,7 @@ input::-webkit-inner-spin-button {
 }
 .pads table {
     width: 100%;
-    border-spacing: 10px;
+    border-spacing: 12px;
 }
 .pads td {
     height: 20vh;
