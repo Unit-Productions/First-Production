@@ -3,12 +3,87 @@
   <head>
     <title>Sequins - The Colorful Sequencer</title>
     <link rel='stylesheet' href="style.css">
+    <meta name='authors' content="Adam Golan, Asger Dokkedal, Mads Edvardsen">
+    <link rel='icon' href="/Sequins_logo2.png">
   </head>
   <body>
     <div class='navbar'>
-      <button class='playButton'>Play</button>
+      <div class='navBox logoBox'>
+        <img src="/Sequins_icon.png">
+        
+      </div>
+      <div class="navBox textBox">
+          <span>Sequins</span>
+      </div>
+      <div class='navBox bpmBox'>
+        <input type='number' class='bpm' value='120'>
+        <span>BPM</span>
+      </div>
+      <div class='navBox metronome' onclick='metroPress(this)' data-state="false"><img src='icons/Metronome_off.png'></div>
+      <div class='navBox playButton' onclick='pressPlay(this)' data-state='false'><img src='icons/Play.png'></div>
     </div>
-    <div class='main'></div>
+    <div class='main'>
+      <div class='pads'>
+        <table>
+          <tr>
+            <td>
+              <div></div>
+            </td>
+            <td>
+              <div></div>
+            </td>
+            <td>
+              <div></div>
+            </td>
+            <td>
+              <div></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div></div>
+            </td>
+            <td>
+              <div></div>
+            </td>
+            <td>
+              <div></div>
+            </td>
+            <td>
+              <div></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div></div>
+            </td>
+            <td>
+              <div></div>
+            </td>
+            <td>
+              <div></div>
+            </td>
+            <td>
+              <div></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div></div>
+            </td>
+            <td>
+              <div></div>
+            </td>
+            <td>
+              <div></div>
+            </td>
+            <td>
+              <div></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
     <script src='Tone.js'></script>
     <script src='script.js'></script>
   </body>
