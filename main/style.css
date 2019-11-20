@@ -89,7 +89,8 @@ input::-webkit-inner-spin-button {
 .pads td {
     background-color: black;
     border-radius: 5px;
-    //box-shadow: 3px 3px 5px rgba(0,0,0,0.5);
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.5);
+    cursor: pointer;
 }
 .pads td div.whitePad {
     background-color: white;
@@ -97,5 +98,9 @@ input::-webkit-inner-spin-button {
     width: 70%;
     height: 70%;
     margin: auto;
-    //box-shadow: inset 3px 3px 5px rgba(0,0,0,0.5);
+    box-shadow: inset 3px 3px 5px rgba(0,0,0,0.5);
+    transition: transform 0.1s;
+}
+.pads td:hover  .whitePad {
+    transform: scale(1.1);
 }
