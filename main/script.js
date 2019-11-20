@@ -122,6 +122,26 @@ function loadPads() {
         classes.outerPad[i].style.height = classes.pads[0].offsetHeight/4.8+'px';
         classes.outerPad[i].style.width = classes.pads[0].offsetHeight/4.8+'px';
         classes.outerPad[i].style.background = gradient(padData[i].color1, padData[i].color2);
-        console.log(gradient(padData[0].color1, gradient(padData[i].color2)));
+        classes.outerPad[i].setAttribute('data-focus', 'false');
+        classes.outerPad[i].setAttribute('onclick', 'padFocus(this)');
+        classes.outerPad[i].setAttribute('data-index', i);
     }
+    classes.outerPad[0].setAttribute('data-focus', 'true');
+    classes.navbar[0].style.background = gradient(padData[0].color1, padData[0].color2);
+}
+function reloadPads() {
+    for (var i = 0; i<classes.outerPad.length; i++) {
+        classes.outerPad[i].style.height = classes.pads[0].offsetHeight/4.8+'px';
+        classes.outerPad[i].style.width = classes.pads[0].offsetHeight/4.8+'px';
+        classes.outerPad[i].style.background = gradient(padData[i].color1, padData[i].color2);
+    }
+}
+function padFocus(t) {
+    for (var i = 0; i<classes.outerPad.length; i++) {
+        classes.outerPad[i].setAttribute('data-focus', 'false');
+    }
+    if (t.getAttribute('data-focus')=='false') {
+        t.setAttribute('data-focus', 'true');
+    }
+    classes.navbar[0].style.background = gradient(padData[t.getAttribute('data-index')].color1, padData[t.getAttribute('data-index')].color2);
 }

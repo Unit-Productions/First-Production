@@ -99,8 +99,17 @@ input::-webkit-inner-spin-button {
     height: 70%;
     margin: auto;
     box-shadow: inset 3px 3px 5px rgba(0,0,0,0.5);
-    transition: transform 0.1s;
+    transition: height 0.1s, width 0.1s;
 }
 .pads td:hover  .whitePad {
-    transform: scale(1.1);
+    height: 80%;
+    width: 80%;
+}
+.pads td[data-focus='true'] .whitePad {
+    /*transform: scale(0.6);*/
+    height: 40%;
+    width: 40%;
+}
+.pads td[data-focus='true'] {
+    cursor: default;
 }
