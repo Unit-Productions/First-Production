@@ -27,6 +27,7 @@
     height: 73px;
     background: linear-gradient(135deg, rgb(224, 102, 102) 0%, rgb(103, 78, 167) 100%) white;
     overflow: hidden;
+    z-index: 1;
 }
 .navBox {
     padding: 15px;
@@ -75,32 +76,31 @@ input::-webkit-inner-spin-button {
 }
 .pads {
     position: fixed;
-    bottom: 0;
     top: 73px;
+    bottom: 0;
     text-align: center;
-    right: 30%;
-    left: 30%;
-}
-.pad {
-    padding: 10%;
-    background-color: black;
-    width: 1px;
-    height: 1px;
-    display: inline-block;
+    left: 0;
+    right: 0;
 }
 .pads table {
-    width: 100%;
-    border-spacing: 12px;
+    border-spacing: 10px;
+    margin: auto;
 }
 .pads td {
-    height: 20vh;
+    background-color: black;
     border-radius: 5px;
-    background: linear-gradient(135deg, rgb(224, 102, 102) 0%, rgb(103, 78, 167) 100%) white;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.5);
+    cursor: pointer;
 }
-.pads td div {
+.pads td div.whitePad {
     background-color: white;
+    border-radius: 5px;
     width: 70%;
     height: 70%;
     margin: auto;
-    border-radius: 5px;
+    box-shadow: inset 3px 3px 5px rgba(0,0,0,0.5);
+    transition: transform 0.1s;
+}
+.pads td:hover  .whitePad {
+    transform: scale(1.1);
 }
