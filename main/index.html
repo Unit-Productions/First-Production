@@ -6,7 +6,7 @@
     <meta name='authors' content="Adam Golan, Asger Dokkedal, Mads Edvardsen">
     <link rel='icon' href="/Sequins_logo2.png">
   </head>
-  <body onload='loadPads()' onresize='loadPads()'>
+  <body onload='loadPads()' onresize='reloadPads()'>
     <div class='navbar'>
       <div class='navBox logoBox'>
         <img src="/Sequins_icon.png">
@@ -21,6 +21,7 @@
       </div>
       <div class='navBox metronome' onclick='metroPress(this)' data-state="false"><img src='icons/Metronome_off.png'></div>
       <div class='navBox playButton' onclick='pressPlay(this)' data-state='false'><img src='icons/Play.png'></div>
+      <div class='navBox liveButton' onclick="livePress(this)" data-state='true'><img src='icons/Live.png'></div>
     </div>
     <div class='main'>
       <div class='pads'>
