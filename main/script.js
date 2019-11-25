@@ -65,6 +65,7 @@ function livePress(t) {
     if (t.getAttribute('data-state')=='false') {
         bool = 'true';
     }
+    console.log(bool);
     t.setAttribute('data-state', bool);
     switch (bool) {
         case 'true':
@@ -72,7 +73,9 @@ function livePress(t) {
             break;
         case 'false':
             t.children[0].src = 'icons/Live_off.png';
+            break;
     }
+    focusPad.setAttribute('data-live', bool);
 }
 //Denne funktion tager to farver, color1 og color2, og returnerer en string.
 //Denne string er en linear-gradient ud fra de to farver.
@@ -207,18 +210,26 @@ function loadPads() {
         classes.outerPad[i].setAttribute('data-live', 'true');
         //Sætter onclick til funktionen padFocus(this)
         classes.outerPad[i].setAttribute('onclick', 'padFocus(this)');
+        //Indexerer alle pads
         classes.outerPad[i].setAttribute('data-index', i);
     }
+    //Sætter fokus på den første pad
     classes.outerPad[0].setAttribute('data-focus', 'true');
+    //Ændrer navbar's baggrund ud fra den første pad
     classes.navbar[0].style.background = gradient(toHSL(padData[0].pitch), toHSL(padData[0].pitch, padData[0].attack));
+    //Live-button retter sig efter første pad
     switch(classes.outerPad[0].getAttribute('data-live')) {
         case 'false':
             classes.liveButton[0].children[0].src = 'icons/Live_off.png';
+            classes.liveButton[0].setAttribute('data-state', 'false');
             break;
         case 'true':
             classes.liveButton[0].children[0].src = 'icons/Live.png';
+            classes.liveButton[0].setAttribute('data-state', 'true');
             break;
     }
+    //Første pad bliver focusPad
+    focusPad = classes.outerPad[0];
 }
 function reloadPads() {
     for (var i = 0; i<classes.outerPad.length; i++) {
@@ -236,11 +247,14 @@ function padFocus(t) {
     switch(t.getAttribute('data-live')) {
         case 'false':
             classes.liveButton[0].children[0].src = 'icons/Live_off.png';
+            classes.liveButton[0].setAttribute('data-state', 'false');
             break;
         case 'true':
             classes.liveButton[0].children[0].src = 'icons/Live.png';
+            classes.liveButton[0].setAttribute('data-state', 'true');
             break;
     }
+    focusPad = t;
     classes.navbar[0].style.background = gradient(toHSL(padData[t.getAttribute('data-index')].pitch), toHSL(padData[t.getAttribute('data-index')].pitch, padData[t.getAttribute('data-index')].attack));
-
+    
 }
