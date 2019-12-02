@@ -16,7 +16,7 @@
           <span>Sequins</span>
       </div>
       <div class='navBox bpmBox'>
-        <input type='number' class='bpm' value='120'>
+        <input type='text' class='bpm' value='120' oninput="changeBPM(this)">
         <span>BPM</span>
       </div>
       <div class='navBox metronome' onclick='metroPress(this)' data-state="false"><img src='icons/Metronome_off.png'></div>
@@ -86,6 +86,8 @@
       </div>
     </div>
     <script src='Tone.js'></script>
+    <script src='setup.js'></script>
+    <script src='navbar.js'></script>
     <script src='script.js'></script>
   </body>
 </html>
