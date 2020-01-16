@@ -6,7 +6,7 @@
     <meta name='authors' content="Adam Golan, Asger Dokkedal, Mads Edvardsen">
     <link rel='icon' href="/Sequins_logo2.png">
   </head>
-  <body onload='loadPads()' onresize='reloadPads()'>
+  <body onload='loadPads()' onresize='reloadPads()' onkeydown="mainInput(event)">
     <div class='navbar'>
       <div class='navBox logoBox'>
         <img src="/Sequins_icon.png">
@@ -16,7 +16,7 @@
           <span>Sequins</span>
       </div>
       <div class='navBox bpmBox'>
-        <input type='number' class='bpm' value='120'>
+        <input type='text' class='bpm' value='120' oninput="changeBPM(this)">
         <span>BPM</span>
       </div>
       <div class='navBox metronome' onclick='metroPress(this)' data-state="false"><img src='icons/Metronome_off.png'></div>
@@ -84,8 +84,57 @@
           </tr>
         </table>
       </div>
+      <div class='sliders'>
+        <div class='sliderDiv'>
+          <span>Pitch</span>
+          <span class='pitchIndic'>0</span>
+          <input class='slider pitchSlider' type='range' value='0' max='23' min='0' oninput="pitchChange(this)" onmousedown='pitchChange(this)'>
+        </div>
+        <div class='sliderDiv'>
+          <span>Length</span>
+          <span class='lengthIndic'>1</span>
+          <input class='slider lengthSlider' step='0.5' type='range' value='1' max='16' min='0.5' oninput="lengthChange(this)">
+        </div>
+        <!--<div class='sliderDiv halfSlider'>
+          <span>Source Type</span>
+          <span class='sourceTypeIndic'>FM</span>
+          <input class='slider sourceTypeSlider' step='1' min='0' max='3' type='range' value='0' oninput="sourceTypeChange(this)" onmousedown="sourceTypeChange(this)">
+        </div>
+        <div class='sliderDiv halfSlider'>
+          <span>Base Type</span>
+          <span class='baseTypeIndic'>Sine</span>
+          <input class='slider baseTypeSlider' step='1' min='0' max='3' type='range' value='0' oninput="baseTypeChange(this)" onmousedown="baseTypeChange(this)">
+        </div>-->
+        <div class='optionDiv sourceType'>
+          <button class='optionArrow' onclick='sourceDown()'>&#60;</button>
+          <span data-value='0' class='source'>FM</span data-value='0'>
+          <button class='optionArrow' onclick='sourceUp()'>&#62;</button>
+        </div>
+        <div class='optionDiv baseType'>
+          <button class='optionArrow' onclick='baseDown()'>&#60;</button>
+          <span data-value='0' class='base'>Sine</span>
+          <button class='optionArrow' onclick='baseUp()'>&#62;</button>
+        </div>
+        <div class='sliderDiv'>
+          <span>Partials</span>
+          <span class='freqIndic'>30</span>
+          <input class='slider freqSlider' step='1' min='0' max='32' type='range' value='30' oninput='freqChange(this)' onmousedown="triggerStart()" onmouseup='triggerEnd()'>
+        </div>
+        <div class='sliderDiv'>
+          <span>Attack</span>
+          <span class='attackIndic'>0</span>
+          <input class='slider attackSlider' step='0.1' min='0' max='2' type='range' value='0' oninput='attackChange(this)' onmousedown="attackChange(this)">
+        </div>
+        <div class='sliderDiv'>
+          <span>Release</span>
+          <span class='releaseIndic'>0.1</span>
+          <input class='slider releaseSlider' step='0.1' min='0.1' max='2' type='range' value='0' oninput='releaseChange(this)' onmousedown="releaseChange(this)">
+        </div>
+      </div>
     </div>
     <script src='Tone.js'></script>
+    <script src='setup.js'></script>
+    <script src='navbar.js'></script>
     <script src='script.js'></script>
   </body>
 </html>
