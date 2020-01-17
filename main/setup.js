@@ -374,10 +374,10 @@ function freqChange(t) {
 }
 function baseTypeChange(t) {
     synth.oscillator.baseType = baseTypes[t.value];
-    synth.triggerAttackRelease(pitches[focusPad.getAttribute('data-index')], 0.1);
+    synth.triggerAttackRelease(padData[focusPad.getAttribute('data-index')].pitch, 0.1);
 }
 function triggerStart() {
-    synth.triggerAttack(pitches[focusPad.getAttribute('data-index')]);
+    synth.triggerAttack(padData[focusPad.getAttribute('data-index')].pitch);
 }
 function triggerEnd() {
     synth.triggerRelease();
@@ -417,10 +417,10 @@ function baseUp() {
 function attackChange(t) {
     synth.envelope.attack = t.value;
     classes.attackIndic[0].innerHTML = t.value;
-    synth.triggerAttackRelease(pitches[focusPad.getAttribute('data-index')], 0.1);
+    synth.triggerAttack(padData[focusPad.getAttribute('data-index')].pitch);
 }
 function releaseChange(t) {
     synth.envelope.release = t.value;
     classes.releaseIndic[0].innerHTML = t.value;
-    synth.triggerAttackRelease(pitches[focusPad.getAttribute('data-index')], 0.1);
+    synth.triggerAttackRelease(padData[focusPad.getAttribute('data-index')].pitch, 0.1);
 }
